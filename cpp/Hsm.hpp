@@ -65,7 +65,8 @@ protected:
     using Event = typename Traits::Host::Event;
 
     template <typename Current>
-    void handleEvent(typename Traits::Host& host, const Current& current, typename Traits::Host::Event event) const
+    void handleEvent([[maybe_unused]] typename Traits::Host& host, [[maybe_unused]] const Current& current,
+                     [[maybe_unused]] typename Traits::Host::Event event) const
     {}
 
 private:
@@ -168,7 +169,7 @@ private:
         // clear all timers associated with this state
         if constexpr (Traits::Host::kClearTimersOnExit)
         {
-            host.template eventScheduler().clearAllTimersInGroup(Traits::kState);
+            host.eventScheduler().clearAllTimersInGroup(Traits::kState);
         }
         if constexpr (Traits::Host::kLogActions == LogActions::eEntryExit)
         {
@@ -286,7 +287,7 @@ private:
         // clear all timers associated with this state
         if constexpr (Traits::Host::kClearTimersOnExit)
         {
-            host.template eventScheduler().clearAllTimersInGroup(Traits::kState);
+            host.eventScheduler().clearAllTimersInGroup(Traits::kState);
         }
         if constexpr (Traits::Host::kLogActions == LogActions::eEntryExit)
         {
