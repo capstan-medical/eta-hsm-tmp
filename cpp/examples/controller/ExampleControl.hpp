@@ -47,7 +47,7 @@ public:
 
     // using Parent = eta_hsm::StateMachine<ExampleControl, ExampleControlTraits>;
 
-    friend class TopState<ExampleControl>;
+    friend struct TopState<ExampleControl>;
 
     using Clock = std::chrono::system_clock;
     using EventScheduler = eta_hsm::utils::TimerBank<eta_hsm::utils::TimerTraits<Clock, Event, StateEnum>>;
