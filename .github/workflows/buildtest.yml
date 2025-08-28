@@ -11,10 +11,18 @@ jobs:
     steps:
       - uses: lukka/get-cmake@latest
       - uses: actions/checkout@v4
-      - name: configure
+      - name: Run and Build
         uses: lukka/run-cmake@v10
         with:
           cmakeListsTxtPath: '${{ github.workspace }}/cpp/CMakeLists.txt'
           configurePreset: '${{matrix.preset}}'
           buildPreset: 'eta-hsm-${{matrix.preset}}'
           testPreset: 'test-all-${{matrix.preset}}'
+      - name: CMake Install
+        run: cmake --install ${{ github.workspace }}/cpp/build/${{matrix.preset}} --prefix ${{github.workspace}}/install
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.os }}-${{ matrix.preset }}
+          path: ${{ github.workspace }}/install
+      
+        
