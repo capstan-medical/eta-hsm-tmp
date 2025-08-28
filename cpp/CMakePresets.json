@@ -14,9 +14,9 @@
         "name": "release",
         "displayName": "Release",
         "generator": "Ninja",
-        "binaryDir": "build/rel",
+        "binaryDir": "build/release",
         "cacheVariables": {
-          "CMAKE_BUILD_TYPE": "Debug"
+          "CMAKE_BUILD_TYPE": "Release"
         }
       }
     ],
