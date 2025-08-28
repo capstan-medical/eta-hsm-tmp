@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.10.2)
 
 project(EtaHsm VERSION 1.0.0 LANGUAGES CXX)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Default to C++17
 if (NOT CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 17)
