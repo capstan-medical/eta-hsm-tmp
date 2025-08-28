@@ -1,7 +1,7 @@
 name: Build
 on: [push, pull_request]
 jobs:
-  build:
+  build-test:
     strategy:
       fail-fast: false
       matrix:
@@ -17,5 +17,4 @@ jobs:
           cmakeListsTxtPath: '${{ github.workspace }}/cpp/CMakeLists.txt'
           configurePreset: '${{matrix.preset}}'
           buildPreset: 'eta-hsm-${{matrix.preset}}'
-
-        
+          testPreset: 'test-all-${{matrix.preset}}'
