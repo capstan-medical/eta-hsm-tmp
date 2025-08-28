@@ -25,5 +25,5 @@ jobs:
           configurePreset: 'debug'
       - name: tidy
         working-directory: '${{ github.workspace }}/cpp/build/debug'
-        run: run-clang-tidy-14.py
+        run: run-clang-tidy-14
         
