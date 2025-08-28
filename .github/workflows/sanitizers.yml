@@ -1,7 +1,7 @@
 name: Sanitizers
 on: [push, pull_request]
 jobs:
-  build-test:
+  run-sanitizers:
     strategy:
       fail-fast: false
       matrix:
