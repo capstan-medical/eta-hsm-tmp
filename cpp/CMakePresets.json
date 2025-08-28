@@ -1,4 +1,5 @@
 {
+    "$comment": "Ref: https://martin-fieber.de/blog/cmake-presets/",
     "version": 3,
     "configurePresets": [
       {
