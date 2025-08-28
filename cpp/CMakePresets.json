@@ -29,7 +29,7 @@
             "configuration": "Debug"
         },
         {
-            "name": "eta-hsm-rel",
+            "name": "eta-hsm-release",
             "displayName": "ETA HSM Relase Build",
             "configurePreset": "release",
             "configuration": "Release"
@@ -37,12 +37,12 @@
     ],
     "testPresets": [
         {
-            "name": "test-all-dbg",
+            "name": "test-all-debug",
             "displayName": "Test All Debug",
             "configurePreset": "debug"
         },
         {
-            "name": "test-all-rel",
+            "name": "test-all-release",
             "displayName": "Test All Release",
             "configurePreset": "release"
         }
