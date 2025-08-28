@@ -25,5 +25,5 @@ jobs:
           configurePreset: 'debug'
       - name: tidy
         working-directory: '${{ github.workspace }}/cpp/build/debug'
-        run: clang-tidy --config-file=${{ github.workspace }}/cpp/.clang-tidy -p ${{ github.workspace }}/cpp/build/debug
+        run: find . -name "*.cpp" -print0 | xargs -0 clang-tidy --config-file=${{ github.workspace }}/cpp/.clang-tidy -p ${{ github.workspace }}/cpp/build/debug
         
