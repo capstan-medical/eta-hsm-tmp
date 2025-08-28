@@ -1,0 +1,4 @@
+---
+Checks: 'cppcoreguidelines-*,modernize-*,bugprone-*,clang-analyzer-*'
+WarningsAsErrors: true
+FormatStyle: file
