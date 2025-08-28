@@ -9,4 +9,4 @@ jobs:
         uses: jidicula/clang-format-action@v4.15.0
         with:
           clang-format-version: '13'
-          check-path: 'eta/hsm-tmp/cpp'
+          check-path: 'cpp'
