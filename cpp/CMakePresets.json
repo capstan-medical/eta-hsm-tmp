@@ -1,0 +1,49 @@
+{
+    "version": 3,
+    "configurePresets": [
+      {
+        "name": "debug",
+        "displayName": "Debug",
+        "generator": "Ninja",
+        "binaryDir": "build/debug",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Debug"
+        }
+      },
+      {
+        "name": "release",
+        "displayName": "Release",
+        "generator": "Ninja",
+        "binaryDir": "build/release",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Release"
+        }
+      }
+    ],
+    "buildPresets": [
+        {
+            "name": "eta-hsm-debug",
+            "displayName": "ETA HSM Debug Build",
+            "configurePreset": "debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "eta-hsm-release",
+            "displayName": "ETA HSM Relase Build",
+            "configurePreset": "release",
+            "configuration": "Release"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "test-all-debug",
+            "displayName": "Test All Debug",
+            "configurePreset": "debug"
+        },
+        {
+            "name": "test-all-release",
+            "displayName": "Test All Release",
+            "configurePreset": "release"
+        }
+    ]
+  }

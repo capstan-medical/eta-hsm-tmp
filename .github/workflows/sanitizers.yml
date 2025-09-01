@@ -1,0 +1,21 @@
+name: Sanitizers
+on: [push, pull_request]
+jobs:
+  run-sanitizers:
+    strategy:
+      fail-fast: false
+      matrix:
+        preset: ["debug", "release"]
+        san: ["ASAN", "UBSAN", "TSAN"]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lukka/get-cmake@latest
+      - uses: actions/checkout@v4
+      - name: configure
+        uses: lukka/run-cmake@v10
+        with:
+          cmakeListsTxtPath: '${{ github.workspace }}/cpp/CMakeLists.txt'
+          configurePreset: '${{matrix.preset}}'
+          configurePresetAdditionalArgs: "['-D${{matrix.san}}=1']"
+          buildPreset: 'eta-hsm-${{matrix.preset}}'
+          testPreset: 'test-all-${{matrix.preset}}'

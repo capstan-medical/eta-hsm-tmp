@@ -13,3 +13,5 @@ target_link_libraries(cd_player
 )
 
 add_subdirectory(tests)
+
+install(TARGETS cd_player DESTINATION bin)

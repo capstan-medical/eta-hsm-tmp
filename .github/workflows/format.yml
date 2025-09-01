@@ -1,0 +1,29 @@
+name: Check Format C++
+on: [push, pull_request]
+jobs:
+  formatting-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: clang-format
+        uses: jidicula/clang-format-action@v4.15.0
+        with:
+          clang-format-version: '14'
+          check-path: 'cpp'
+  tidy:
+    runs-on: ubuntu-latest
+    steps:
+      # https://stackoverflow.com/questions/57982945/how-to-apt-get-install-in-a-github-actions-workflow
+      - name: Install clang-tidy
+        run: sudo apt install -y clang-tidy
+      - uses: lukka/get-cmake@latest
+      - uses: actions/checkout@v4
+      - name: configure
+        uses: lukka/run-cmake@v10
+        with:
+          cmakeListsTxtPath: '${{ github.workspace }}/cpp/CMakeLists.txt'
+          configurePreset: 'debug'
+      - name: tidy
+        working-directory: '${{ github.workspace }}/cpp/build/debug'
+        run: find . -name "*.cpp" -print0 | xargs -0 clang-tidy --config-file=${{ github.workspace }}/cpp/.clang-tidy -p ${{ github.workspace }}/cpp/build/debug
+        
